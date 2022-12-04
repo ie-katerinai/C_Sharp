@@ -3,19 +3,20 @@
 // 456 -> 3
 // 78 -> 2
 //89126 -> 5*/
-Console.WriteLine("Введите число");
-int num = Convert.ToInt32(Console.ReadLine());
-int X = Acount(num);
-Console.WriteLine($"Количестов цифр в числе равно {X}");
 
-int Acount(int num)
+int Acount(int num) // функция, которая будет обрабатывать число
 {
     int count = 0;
 
     while (num != 0)
     {
-        num = num / 10;
-        count = count + 1;
+        num = num / 10; // делим его на 10, пока число не станет дробным
+        count = count + 1; // счетчик цифр
     }
     return count;
 }
+
+Console.WriteLine("Введите число"); // Вывод запроса пользователю
+int num = Convert.ToInt32(Console.ReadLine()); // запись в объявленную переменную 
+int X = Acount(num); // заводим переменную, в которую запишем введенное число
+Console.WriteLine($"Количестов цифр в числе равно {X}");
