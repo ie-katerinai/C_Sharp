@@ -34,7 +34,7 @@ try
     Console.WriteLine("Введите число "); // вывод запроса пользователю
     decimal N = Convert.ToDecimal(Console.ReadLine()); // конвертирование и запись дробного значения в переменную
     long integer = ConvToInteger(N);
-    Console.WriteLine($"количестыо цифр в числе: CountingNumbers(integer)");
+    Console.WriteLine($"Количестыо цифр в числе: {CountingNumbers(integer)}");
 }
 catch (System.FormatException) // ищет неверный формат ввоа
 {
