@@ -7,14 +7,30 @@
 long ConvToInteger(decimal num1) // функция домнажает дробное число до целого
 {
     decimal fraction = num1;
-    while (fraction != 0) // условие: пока дробная часть не будет равна 0
+    long result = 0;
+    if (num1 > -1 && num1 < 1)
     {
-        num1 = num1 * 10;
-        fraction = num1 % 1;
+        int count1 = 0;
+        while (fraction != 0) // условие: пока дробная часть не будет равна 0
+        {
+            num1 = num1 * 10;
+            fraction = num1 % 1;
+            count1++;
+        }
+        result = count1;
     }
-    long integer = Convert.ToInt64(num1 - fraction); // переврдим в int, чтобы после запятой не писались нули, 64 - чтобы можно было ввести число больше 10 знаков
-    //Console.WriteLine($"Число дробное, увеличенное до целого {integer}");
-    return integer;
+    else
+    {
+        while (fraction != 0) // условие: пока дробная часть не будет равна 0
+        {
+            num1 = num1 * 10;
+            fraction = num1 % 1;
+        }
+        long integer = Convert.ToInt64(num1 - fraction); // переврдим в int, чтобы после запятой не писались нули, 64 - чтобы можно было ввести число больше 10 знаков
+        //Console.WriteLine($"Число дробное, увеличенное до целого {integer}");
+        result = integer;
+    }
+    return result;
 }
 
 int CountingNumbers(long num2) // функция подсчета количества цифр в числе
@@ -33,8 +49,16 @@ try
 {
     Console.WriteLine("Введите число "); // вывод запроса пользователю
     decimal N = Convert.ToDecimal(Console.ReadLine()); // конвертирование и запись дробного значения в переменную
-    long integer = ConvToInteger(N);
-    Console.WriteLine($"Количестыо цифр в числе: {CountingNumbers(integer)}");
+    if (N > -1 && N < 1)
+    {
+        long integer = (ConvToInteger(N) + 1);
+        Console.WriteLine(integer);
+    }
+    else
+    {
+        long integer = ConvToInteger(N);
+        Console.WriteLine($"Количестыо цифр в числе: {CountingNumbers(integer)}");
+    }
 }
 catch (System.FormatException) // ищет неверный формат ввоа
 {
