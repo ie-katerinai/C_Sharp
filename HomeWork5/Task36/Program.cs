@@ -26,6 +26,8 @@ int SumOfEvenElements(int[] array)
     return sum;
 }
 
+try
+{
 Console.WriteLine("Введите размерность массива");
 int size = Convert.ToInt32(Console.ReadLine());
 int[] array = RendrArray(size);
@@ -33,3 +35,8 @@ Console.WriteLine();
 PrintArray(array);
 Console.WriteLine();
 Console.WriteLine($"Сумма элементов массива, стоящих на четных позициях, равна {SumOfEvenElements(array)}");
+}
+catch (System.FormatException) // ищет неверный формат ввоа
+{
+    Console.WriteLine("Вы ввели не число");
+}
