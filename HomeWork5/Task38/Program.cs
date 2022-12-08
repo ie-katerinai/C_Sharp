@@ -40,16 +40,25 @@ double DifMaxAndMin(double MaxNumb, double MinNumb)
     return dif;
 }
 
-Console.WriteLine("Введите размерность массива");
-int size = Convert.ToInt32(Console.ReadLine());
-double[] array = RendrArray(size);
-Console.WriteLine();
-PrintArray(array);
-double MinNumb = FindMin(array);
-Console.WriteLine();
-Console.WriteLine($"Минимальное число массива равно {MinNumb}");
-double MaxNumb = FindMax(array);
-Console.WriteLine();
-Console.WriteLine($"Максимальное число массива равно {MaxNumb}");
-Console.WriteLine();
-Console.WriteLine($"Разница между максимальным и минимальным элементом массива равна {DifMaxAndMin(MaxNumb, MinNumb)}");
+try
+{
+    Console.WriteLine("Введите размерность массива");
+    int size = Convert.ToInt32(Console.ReadLine());
+    double[] array = RendrArray(size);
+    Console.WriteLine();
+    PrintArray(array);
+    double MinNumb = FindMin(array);
+    Console.WriteLine();
+    Console.WriteLine($"Минимальное число массива равно {MinNumb}");
+    double MaxNumb = FindMax(array);
+    Console.WriteLine();
+    Console.WriteLine($"Максимальное число массива равно {MaxNumb}");
+    Console.WriteLine();
+    Console.WriteLine(
+        $"Разница между максимальным и минимальным элементом массива равна {DifMaxAndMin(MaxNumb, MinNumb)}"
+    );
+}
+catch (System.FormatException) // ищет неверный формат ввоа
+{
+    Console.WriteLine("Вы ввели не число");
+}
