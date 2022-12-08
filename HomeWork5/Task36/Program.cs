@@ -1,4 +1,4 @@
-﻿// Задача 36: Задайте одномерный массив, заполненный случайными числами. 
+﻿// Задача 36: Задайте одномерный массив, заполненный случайными числами.
 // Найдите сумму элементов, стоящих на нечётных позициях.
 // [3, 7, 23, 12] -> 19
 // [-4, -6, 89, 6] -> 0
@@ -22,19 +22,21 @@ int SumOfEvenElements(int[] array)
 {
     int sum = 0;
     for (int i = 2; i < array.Length; i = i + 2)
-            sum += array[i];
+        sum += array[i];
     return sum;
 }
 
 try
 {
-Console.WriteLine("Введите размерность массива");
-int size = Convert.ToInt32(Console.ReadLine());
-int[] array = RendrArray(size);
-Console.WriteLine();
-PrintArray(array);
-Console.WriteLine();
-Console.WriteLine($"Сумма элементов массива, стоящих на четных позициях, равна {SumOfEvenElements(array)}");
+    Console.WriteLine("Введите размерность массива");
+    int size = Convert.ToInt32(Console.ReadLine());
+    int[] array = RendrArray(size);
+    Console.WriteLine();
+    PrintArray(array);
+    Console.WriteLine();
+    Console.WriteLine(
+        $"Сумма элементов массива, стоящих на четных позициях, равна {SumOfEvenElements(array)}"
+    );
 }
 catch (System.FormatException) // ищет неверный формат ввоа
 {

@@ -27,10 +27,17 @@ int FindEvenNumbers(int[] array)
     return count;
 }
 
-Console.WriteLine("Введите размерность массива");
-int size = Convert.ToInt32(Console.ReadLine());
-int[] array = RendrArray(size);
-Console.WriteLine();
-PrintArray(array);
-Console.WriteLine();
-Console.WriteLine($"Количество четных чисел в массиве составляет {FindEvenNumbers(array)}");
+try
+{
+    Console.WriteLine("Введите размерность массива");
+    int size = Convert.ToInt32(Console.ReadLine());
+    int[] array = RendrArray(size);
+    Console.WriteLine();
+    PrintArray(array);
+    Console.WriteLine();
+    Console.WriteLine($"Количество четных чисел в массиве составляет {FindEvenNumbers(array)}");
+}
+catch (System.FormatException) // ищет неверный формат ввоа
+{
+    Console.WriteLine("Вы ввели не число");
+}
