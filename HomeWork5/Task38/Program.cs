@@ -54,9 +54,7 @@ try
     Console.WriteLine();
     Console.WriteLine($"Максимальное число массива равно {MaxNumb}");
     Console.WriteLine();
-    Console.WriteLine(
-        $"Разница между максимальным и минимальным элементом массива равна {DifMaxAndMin(MaxNumb, MinNumb)}"
-    );
+    Console.WriteLine($"Разница между максимальным и минимальным элементом массива равна {DifMaxAndMin(MaxNumb, MinNumb)}");
 }
 catch (System.FormatException) // ищет неверный формат ввоа
 {
