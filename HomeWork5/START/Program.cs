@@ -133,7 +133,6 @@ try
     Console.WriteLine();
 
     SortingArray(array);
-    //Array.Sort(array);
     PrintArray(array);
     Console.WriteLine($"Медианное значение массива равно {MedianValue(array)}");
 
