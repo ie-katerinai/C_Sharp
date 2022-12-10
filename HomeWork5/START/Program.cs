@@ -20,6 +20,13 @@ void PrintArray(int[] array) // функция печати созданного
     Console.WriteLine();
 }
 
+void PrintStringArray(string[] array) // функция печати созданного массива
+{
+    foreach (string el in array)
+        Console.WriteLine($"{el} ");
+    Console.WriteLine();
+}
+
 int FindMin(int[] array) // функция нахождения максимального элемента массива
 {
     int min = array[0];
@@ -73,23 +80,26 @@ double ArithmeticMean(int[] array) // функция подсчета средн
     return arMean;
 }
 
-void SortingArray(int[] array)
+void SortingArray(int[] array) // функция сортировки массива от min до max
 {
-    int len = array.Length - 1;
-                array[len] = FindMax(array);
-
-    for (int i = 0; i < len; len--)
+    int len = array.Length;
+    for (int i = 0; i < len; i++)
     {
-        for (int j = 0; j < len; j++)
+        for (int j = 0; j < len - 1; j++)
         {
-            array[len] = FindMax(array);
+            if(array[j] > array[j + 1])
+            {
+                int max = array[j + 1];
+                array[j + 1] = array [j];
+                array[j] = max;
+            }
         }
     }
 }
 
-double MedianValue(int[] array) // функция нахождения медианы
+int MedianValue(int[] array) // функция нахождения медианы
 {
-    double value = 0;
+    int value = 0;
     if (array.Length % 2 == 0)
     {
         value = (array[array.Length / 2] + array[array.Length / 2 - 1]) / 2;
@@ -108,32 +118,25 @@ try
     int[] array = RendrArray(size);
     Console.WriteLine();
     PrintArray(array);
-
-    int MinNumb = FindMin(array);
-    Console.WriteLine();
-    Console.WriteLine($"Минимальное число массива равно {MinNumb}");
-
-    int IndMin = FindIndexMin(array);
-    Console.WriteLine($"Индекс минимального числа массива равен {IndMin}");
     Console.WriteLine();
 
-    int MaxNumb = FindMax(array);
-    Console.WriteLine();
-    Console.WriteLine($"Максимальное число массива равно {MaxNumb}");
+    string[] stringArray = new string[5];
+    stringArray[0] = "Минимальное число массива равно " + FindMin(array);
+    stringArray[1] = "Индекс минимального числа массива равен " + FindIndexMin(array);
+    stringArray[2] = "Максимальное число массива равно " + FindMax(array);
+    stringArray[3] = "Индекс максимального числа массива равен " + FindIndexMax(array);
+    stringArray[4] = "Среднее арифметическое элементов массива равно " + ArithmeticMean(array);
 
-    int IndMax = FindIndexMax(array);
-    Console.WriteLine($"Индекс максимальноеминимального числа массива равен {IndMax}");
-    Console.WriteLine();
 
-    double meanSum = ArithmeticMean(array);
-    Console.WriteLine($"Среднее арифметическое элементов массива равно {meanSum}");
-    Console.WriteLine();
+    PrintStringArray(stringArray);
 
-    Console.WriteLine($"Медианное значение массива равно {MedianValue(array)}");
     Console.WriteLine();
 
     SortingArray(array);
+    //Array.Sort(array);
     PrintArray(array);
+    Console.WriteLine($"Медианное значение массива равно {MedianValue(array)}");
+
 }
 catch (System.FormatException) // ищет неверный формат ввоа
 {
