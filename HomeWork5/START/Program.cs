@@ -73,6 +73,34 @@ double ArithmeticMean(int[] array) // функция подсчета средн
     return arMean;
 }
 
+void SortingArray(int[] array)
+{
+    int len = array.Length - 1;
+                array[len] = FindMax(array);
+
+    for (int i = 0; i < len; len--)
+    {
+        for (int j = 0; j < len; j++)
+        {
+            array[len] = FindMax(array);
+        }
+    }
+}
+
+double MedianValue(int[] array) // функция нахождения медианы
+{
+    double value = 0;
+    if (array.Length % 2 == 0)
+    {
+        value = (array[array.Length / 2] + array[array.Length / 2 - 1]) / 2;
+    }
+    else
+    {
+        value = array[array.Length / 2];
+    }
+    return value;
+}
+
 try
 {
     Console.WriteLine("Введите размерность массива");
@@ -100,6 +128,12 @@ try
     double meanSum = ArithmeticMean(array);
     Console.WriteLine($"Среднее арифметическое элементов массива равно {meanSum}");
     Console.WriteLine();
+
+    Console.WriteLine($"Медианное значение массива равно {MedianValue(array)}");
+    Console.WriteLine();
+
+    SortingArray(array);
+    PrintArray(array);
 }
 catch (System.FormatException) // ищет неверный формат ввоа
 {
