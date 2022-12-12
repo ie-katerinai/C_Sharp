@@ -12,14 +12,14 @@ void CreateArray(int[] mass) //заполняет массив
 
 }
 
-void PrintArray(int[] mass)
+void PrintArray(int[] mass) // печатает массив
 {
     foreach (int el in mass)
         Console.Write($"{el} ");
     Console.WriteLine();
 }
 
-void Check(int[] mass)
+void Check(int[] mass) // проверяет, существует ли треугольник с такими сторонами
 {
     int index = 0;
     int sum = mass[index+1] + mass[index+2];
