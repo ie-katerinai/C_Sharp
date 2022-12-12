@@ -34,14 +34,14 @@ void CheckTriangleCategory(int[] mass) // равносторонний? равн
     else Console.WriteLine("разносторонний");
 }
 
-double[] ValueOfAngles(int[] mass) // вычисление угллов
-{
-    double[] arr = new double[3];
-    arr[0] = Math.Round((Math.Acos((Math.Pow(mass[0],2) + Math.Pow(mass[2],2) - Math.Pow(mass[1],2)) / (2 * mass[0] * mass[2])) * 180/ Math.PI),2);
-    arr[1] = Math.Round((Math.Acos((Math.Pow(mass[0],2) + Math.Pow(mass[1],2) - Math.Pow(mass[2],2)) / 2 * mass[0] * mass[1]) * 180/ Math.PI),2);
-    arr[2] = Math.Round((Math.Acos((Math.Pow(mass[1],2) + Math.Pow(mass[2],2) - Math.Pow(mass[0],2)) / 2 * mass[1] * mass[2]) * 180/ Math.PI),2);
-    return arr;
-}
+// double[] ValueOfAngles(int[] mass) // вычисление угллов
+// {
+//     double[] arr = new double[3];
+//     arr[0] = Math.Round((Math.Acos((Math.Pow(mass[0],2) + Math.Pow(mass[2],2) - Math.Pow(mass[1],2)) / (2 * mass[0] * mass[2])) * 180/ Math.PI),2);
+//     arr[1] = Math.Round((Math.Acos((Math.Pow(mass[0],2) + Math.Pow(mass[1],2) - Math.Pow(mass[2],2)) / 2 * mass[0] * mass[1]) * 180/ Math.PI),2);
+//     arr[2] = Math.Round((Math.Acos((Math.Pow(mass[1],2) + Math.Pow(mass[2],2) - Math.Pow(mass[0],2)) / 2 * mass[1] * mass[2]) * 180/ Math.PI),2);
+//     return arr;
+// }
 
 void CheckRightTriangle (double[] mass) // прямоугольный треугольник?
 {
@@ -64,7 +64,7 @@ int PerimetrOfTriangle(int[] mass) // вычисление периметра
     }
     return perimetr;
 }
-void ReFillArray(int[] mass, int[]array)
+void FillDoubleArray(int[] mass, int[]array)
 {
     int length = mass.Length;
     for (int i = 0; i < length; i++)
@@ -79,9 +79,22 @@ int[] array = new int[3];
 FillArray(array);
 PrintArray(array);
 Check(array);
-double[] angles = new double[3];
-ReFillArray(angles, array);
-PrintArray(angles);
+//double[] angles = new double[3];
+
+
+double[] anglesArray = new double[3];
+    arr[0] = Math.Round((Math.Acos((Math.Pow(mass[0],2) + Math.Pow(mass[2],2) - Math.Pow(mass[1],2)) / (2 * mass[0] * mass[2])) * 180/ Math.PI),2);
+    arr[1] = Math.Round((Math.Acos((Math.Pow(mass[0],2) + Math.Pow(mass[1],2) - Math.Pow(mass[2],2)) / 2 * mass[0] * mass[1]) * 180/ Math.PI),2);
+    arr[2] = Math.Round((Math.Acos((Math.Pow(mass[1],2) + Math.Pow(mass[2],2) - Math.Pow(mass[0],2)) / 2 * mass[1] * mass[2]) * 180/ Math.PI),2);
+    return anglesArray;
+
+
+PrintDoubleArray(anglesArray);
+
+
+
+// FillDoubleArray(angles, array);
+// PrintDoubleArray(angles);
 
 //angles[i] =new ValueOfAngles(array);
 
