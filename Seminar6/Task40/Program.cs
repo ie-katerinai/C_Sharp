@@ -18,8 +18,6 @@ void PrintArray(int[] mass)
         Console.Write($"{el} ");
     Console.WriteLine();
 }
-//if(num1<num2+num3) "Существует"
-//else "Не существует"
 
 void Check(int[] mass)
 {

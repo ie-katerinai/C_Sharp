@@ -25,9 +25,9 @@ void Reverse(int[] array)
 {
     int size = array.Length;
     int temp;
-    for (int i = 0; i < size/2; i++)
+    for (int i = 0; i < size/2; i++) // меняет до середины, иначе поменяет дважды и массив останется без изменений
         {
-            temp = array[i];
+            temp = array[i]; // нельзя объявлять внутри цикла
             array[i] = array[size - 1 - i];
             array[size - 1 - i] = temp;
         }
