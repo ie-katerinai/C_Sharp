@@ -5,20 +5,7 @@
 // Сохранить эту инфу в отдельный массив и вывести на экран с пояснениями.
 // Найти медианное значение первоначалального массива , возможно придется кое-что для этого дополнительно выполнить.
 
-int[] RendrArray(int size) // функция создания массива из случайных целых чисел
-{
-    int[] array = new int[size];
-    for (int i = 0; i < size; i++)
-        array[i] = new Random().Next(1, 100);
-    return array;
-}
 
-void PrintArray(int[] array) // функция печати созданного массива
-{
-    foreach (int el in array)
-        Console.Write($"{el} ");
-    Console.WriteLine();
-}
 
 void PrintStringArray(string[] array) // функция печати созданного массива
 {
