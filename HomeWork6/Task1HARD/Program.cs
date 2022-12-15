@@ -55,14 +55,20 @@ void FindMin(int[,] array) // функция поиска индекса мин�
     }
     Console.WriteLine($"Минимальный элемент равен {min}, его индекс:({indexIMin},{indexJMin})");
 }
-
-Console.WriteLine("Введите количество строк двумерного массива");
-int m = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите количество столбцов двумерного массива");
-int n = Convert.ToInt32(Console.ReadLine());
-int[,] array = new int[m, n];
-FillArray(array);
-PrintArray(array);
-Console.WriteLine();
-FindMin(array);
-FindMax(array);
+try
+{
+    Console.WriteLine("Введите количество строк двумерного массива");
+    int m = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Введите количество столбцов двумерного массива");
+    int n = Convert.ToInt32(Console.ReadLine());
+    int[,] array = new int[m, n];
+    FillArray(array);
+    PrintArray(array);
+    Console.WriteLine();
+    FindMin(array);
+    FindMax(array);
+}
+catch (System.FormatException)
+{
+    Console.WriteLine("Некорректный ввод");
+}
