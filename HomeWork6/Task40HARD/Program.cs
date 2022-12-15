@@ -3,99 +3,82 @@
 Если да, то вывести всю информацию по нему - площадь, периметр, значения углов треугольника в градусах, 
 является ли он прямоугольным, равнобедренным, равносторонним.*/
 
-void FillArray(int[] mass) //заполняет массив
+void FillArray(int[] array) //заполняет массив
 {
 
-    for (int i = 0; i < mass.Length; i++)
+    for (int i = 0; i < array.Length; i++)
     {
-        mass[i] = Convert.ToInt32(Console.ReadLine());
+        array[i] = Convert.ToInt32(Console.ReadLine());
     }
 }
 
-void PrintArray(int[] mass) // печатает массив
+void PrintArray(int[] array) // печатает массив
 {
-    foreach (int el in mass)
+    foreach (int el in array)
         Console.Write($"{el} ");
     Console.WriteLine();
 }
 
-void Check(int[] mass) // проверяет, существует ли треугольник с такими сторонами
+bool Check(int[] array) // проверяет, существует ли треугольник с такими сторонами
 {
-    int i = 0;
-    int sum = mass[i + 1] + mass[i + 2];
-    if(mass[i] < sum)  Console.WriteLine("Существует");
-    else Console.WriteLine("Не существует");
+    bool result = false;
+    if (array[0] < array[1] + array[2] && array[1] < array[0] + array[2] && array[2] < array[0] + array[1]) result = true;
+    else result = false;
+    return result;
 }
 
-void CheckTriangleCategory(int[] mass) // равносторонний? равнобедренный? разносторонний?
+void CheckTriangleCategory(int[] array) // равносторонний? равнобедренный? разносторонний?
 {
-    if(mass[0] == mass[1] && mass[1] == mass[2] ) Console.WriteLine ("равносторонний");
-    else if (mass[0] == mass[1] || mass[0] == mass[2] || mass[1] == mass[2]) Console.WriteLine("равнобедренный");
-    else Console.WriteLine("разносторонний");
+    if (array[0] == array[1] && array[1] == array[2]) Console.WriteLine("Треугольник равносторонний");
+    else if (array[0] == array[1] || array[0] == array[2] || array[1] == array[2]) Console.WriteLine("Треугольник равнобедренный");
+    else Console.WriteLine("Треугольник разносторонний");
 }
 
-// double[] ValueOfAngles(int[] mass) // вычисление угллов
-// {
-//     double[] arr = new double[3];
-//     arr[0] = Math.Round((Math.Acos((Math.Pow(mass[0],2) + Math.Pow(mass[2],2) - Math.Pow(mass[1],2)) / (2 * mass[0] * mass[2])) * 180/ Math.PI),2);
-//     arr[1] = Math.Round((Math.Acos((Math.Pow(mass[0],2) + Math.Pow(mass[1],2) - Math.Pow(mass[2],2)) / 2 * mass[0] * mass[1]) * 180/ Math.PI),2);
-//     arr[2] = Math.Round((Math.Acos((Math.Pow(mass[1],2) + Math.Pow(mass[2],2) - Math.Pow(mass[0],2)) / 2 * mass[1] * mass[2]) * 180/ Math.PI),2);
-//     return arr;
-// }
-
-void CheckRightTriangle (double[] mass) // прямоугольный треугольник?
+int[] ValueOfAngles(int[] array) // вычисление угллов
 {
-    if (mass[0] == 90 || mass[1] == 90 || mass[2] == 90)
-    Console.WriteLine("прямоуголный ");
+    int[] arr = new int[3];
+    arr[0] = Convert.ToInt32(Math.Round((Math.Acos((Math.Pow(array[0], 2) + Math.Pow(array[2], 2) - Math.Pow(array[1], 2)) / (2 * array[0] * array[2])) * 180 / Math.PI), 2));
+    arr[1] = Convert.ToInt32(Math.Round((Math.Acos((Math.Pow(array[0], 2) + Math.Pow(array[1], 2) - Math.Pow(array[2], 2)) / (2 * array[0] * array[1])) * 180 / Math.PI), 2));
+    arr[2] = Convert.ToInt32(Math.Round((Math.Acos((Math.Pow(array[1], 2) + Math.Pow(array[2], 2) - Math.Pow(array[0], 2)) / (2 * array[1] * array[2])) * 180 / Math.PI), 2));
+    return arr;
 }
 
-double AreaOfTriangle(int[] mass1, int[] mass2) // вычисление площади
+void CheckRightTriangle(int[] array) // прямоугольный треугольник?
 {
-    double area = ((mass1[0] * mass1[1]) / 2) * Math.Sin(mass2[0]);
+    if (array[0] == 90 || array[1] == 90 || array[2] == 90)
+        Console.WriteLine("Треугольник прямоугольный");
+}
+
+int AreaOfTriangle(int[] array1, int[] array2) // вычисление площади
+{
+    int area = Convert.ToInt32(Math.Abs(((array1[0] * array1[1]) / 2) * Math.Sin(array2[0])));
     return area;
 }
 
-int PerimetrOfTriangle(int[] mass) // вычисление периметра
+int PerimetrOfTriangle(int[] array) // вычисление периметра
 {
     int perimetr = 0;
-    for(int i = 0; i < mass.Length; i++)
+    for (int i = 0; i < array.Length; i++)
     {
-        perimetr +=  mass[i];
+        perimetr += array[i];
     }
     return perimetr;
-}
-void FillDoubleArray(int[] mass, int[]array)
-{
-    int length = mass.Length;
-    for (int i = 0; i < length; i++)
-    {
-        mass[i]=new ValueOfAngles(array);
-    }
-
 }
 
 Console.WriteLine("Введите размеры строн треугольника");
 int[] array = new int[3];
 FillArray(array);
+Console.Write("Исходный массив: ");
 PrintArray(array);
-Check(array);
-//double[] angles = new double[3];
-
-
-double[] anglesArray = new double[3];
-    arr[0] = Math.Round((Math.Acos((Math.Pow(mass[0],2) + Math.Pow(mass[2],2) - Math.Pow(mass[1],2)) / (2 * mass[0] * mass[2])) * 180/ Math.PI),2);
-    arr[1] = Math.Round((Math.Acos((Math.Pow(mass[0],2) + Math.Pow(mass[1],2) - Math.Pow(mass[2],2)) / 2 * mass[0] * mass[1]) * 180/ Math.PI),2);
-    arr[2] = Math.Round((Math.Acos((Math.Pow(mass[1],2) + Math.Pow(mass[2],2) - Math.Pow(mass[0],2)) / 2 * mass[1] * mass[2]) * 180/ Math.PI),2);
-    return anglesArray;
-
-
-PrintDoubleArray(anglesArray);
-
-
-
-// FillDoubleArray(angles, array);
-// PrintDoubleArray(angles);
-
-//angles[i] =new ValueOfAngles(array);
-
-Console.WriteLine($"Треугольник является {CheckTriangleCategory(array)} {CheckRightTriangle(angles)}, его улы равны {ValueOfAngles(array)}, периметр равен {PerimetrOfTriangle(array)}, площадь равна{AreaOfTriangle(array)}");
+if (Check(array))
+{
+    Console.WriteLine("Треугольник существует");
+    CheckTriangleCategory(array);
+    int[] angles = ValueOfAngles(array);
+    Console.Write("Углы треугольника равны: ");
+    PrintArray(angles);
+    CheckRightTriangle(angles);
+    Console.WriteLine($"Площадь треугольника равна {AreaOfTriangle(array, angles)}");
+    Console.WriteLine($"Периметр треугольника равен {PerimetrOfTriangle(array)}");
+}
+else Console.WriteLine("Треугольник не существует");
