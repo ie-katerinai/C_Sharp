@@ -10,5 +10,24 @@ void FillArray(int[] collection) // тип_данных ИмяМетода(ти�
         index++;
     }
 }
-
 FillArray(имя массива); // вызов функции
+
+
+
+
+
+void FillArray(int[] array) //заполняет массив
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = Convert.ToInt32(Console.ReadLine());
+    }
+}
+
+
+void FillArray(int[,] array) // создание двумерного массива целых чисел
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+        for (int j = 0; j < array.GetLength(1); j++)
+            array[i, j] = new Random().Next(0, 50);
+}
