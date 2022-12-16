@@ -45,45 +45,9 @@ void CheckTriangleCategory(int[] array) // равносторонний? рав�
 int[] ValueOfAngles(int[] array) // вычисление угллов
 {
     int[] arr = new int[3];
-    arr[0] = Convert.ToInt32(
-        Math.Round(
-            (
-                Math.Acos(
-                    (Math.Pow(array[0], 2) + Math.Pow(array[2], 2) - Math.Pow(array[1], 2))
-                        / (2 * array[0] * array[2])
-                )
-                * 180
-                / Math.PI
-            ),
-            2
-        )
-    );
-    arr[1] = Convert.ToInt32(
-        Math.Round(
-            (
-                Math.Acos(
-                    (Math.Pow(array[0], 2) + Math.Pow(array[1], 2) - Math.Pow(array[2], 2))
-                        / (2 * array[0] * array[1])
-                )
-                * 180
-                / Math.PI
-            ),
-            2
-        )
-    );
-    arr[2] = Convert.ToInt32(
-        Math.Round(
-            (
-                Math.Acos(
-                    (Math.Pow(array[1], 2) + Math.Pow(array[2], 2) - Math.Pow(array[0], 2))
-                        / (2 * array[1] * array[2])
-                )
-                * 180
-                / Math.PI
-            ),
-            2
-        )
-    );
+    arr[0] = Convert.ToInt32(Math.Round((Math.Acos((Math.Pow(array[0], 2) + Math.Pow(array[2], 2) - Math.Pow(array[1], 2)) / (2 * array[0] * array[2])) * 180 / Math.PI), 2));
+    arr[1] = Convert.ToInt32(Math.Round((Math.Acos((Math.Pow(array[0], 2) + Math.Pow(array[1], 2) - Math.Pow(array[2], 2)) / (2 * array[0] * array[1])) * 180 / Math.PI), 2));
+    arr[2] = Convert.ToInt32(Math.Round((Math.Acos((Math.Pow(array[1], 2) + Math.Pow(array[2], 2) - Math.Pow(array[0], 2)) / (2 * array[1] * array[2])) * 180 / Math.PI), 2));
     return arr;
 }
 
@@ -95,7 +59,8 @@ void CheckRightTriangle(int[] array) // прямоугольный треуго�
 
 int AreaOfTriangle(int[] array1, int[] array2) // вычисление площади
 {
-    int area = Convert.ToInt32(Math.Abs(((array1[0] * array1[1]) / 2) * Math.Sin(array2[0])));
+    int area = Convert.ToInt32(
+        Math.Abs(((array1[0] * array1[2]) / 2) * Math.Sin((array2[0] * Math.PI) / 180)));
     return area;
 }
 
@@ -114,11 +79,9 @@ try
     Console.WriteLine("Введите размеры строн треугольника");
     int[] array = new int[3];
     FillArray(array);
-    Console.Write("Исходный массив: ");
-    PrintArray(array);
     if (Check(array))
     {
-        Console.WriteLine("Треугольник существует");
+        Console.WriteLine();
         CheckTriangleCategory(array);
         int[] angles = ValueOfAngles(array);
         Console.Write("Углы треугольника равны: ");
