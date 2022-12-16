@@ -31,8 +31,6 @@ try
     Console.WriteLine("Введите числа через пробел");
     int[] array = Rendr(Console.ReadLine());
     Console.WriteLine();
-    Console.WriteLine();
-    Console.WriteLine();
     Console.WriteLine($"Количество положительных элементов массива равно {PositiveNumbers(array)}");
     Console.WriteLine();
 }
