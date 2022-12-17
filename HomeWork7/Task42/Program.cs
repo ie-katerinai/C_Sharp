@@ -4,36 +4,36 @@
 // 1 -3,3 8 -9,9
 // 8 7,8 -7,1 9
 
-// void PrintArray(int[,] array)
-// {
-//     for (int i=0;i<array.GetLength(0);i++)
-//        {
-//         for (int j=0;j<array.GetLength(1);j++)
-//             Console.Write($"{array[i,j],3}\t");
-//         Console.WriteLine();
-//        }
-// }
-
-double[,] RendrArray(int[,] size)
+double[,] RendrArray(double[,] array)
 {
-    double[,] array = new double[size];
     for (int i = 0; i < array.GetLength(0); i++)
         for (int j = 0; j < array.GetLength(1); j++)
             array[i, j] = Math.Round(new Random().NextDouble() * 100, 1);
     return array;
 }
 
-void FillArray(int[,] array)
+void FillArray(double[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
         for (int j = 0; j < array.GetLength(1); j++)
             array[i, j] = new Random().Next(-20, 21);
 }
 
+void PrintArray(double[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+            Console.Write($"{array[i, j],3}\t");
+        Console.WriteLine();
+    }
+}
+
 Console.WriteLine("Введите количество строк двумерного массива");
 int rows = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите количество столбцов двумерного массива");
 int cols = Convert.ToInt32(Console.ReadLine());
-int[,] array = new int[rows, cols];
+double[,] array = new double[rows, cols];
 FillArray(array);
 RendrArray(array);
+PrintArray(array);
