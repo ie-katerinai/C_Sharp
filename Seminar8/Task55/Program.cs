@@ -36,7 +36,7 @@ void Replace(int[,] array)
     //     }
     for (int i = 0; i < array.GetLength(0); i++)
         for (int j = i; j < array.GetLength(1); j++)
-            (array[i, j], array[j, i]) = (array[j, i], array[i, j]);
+            (array[i, j], array[j, i]) = (array[j, i], array[i, j]); // множественное присваивание
 }
 Console.WriteLine("Введите количество строк двумерного массива");
 int rows = Convert.ToInt32(Console.ReadLine());
