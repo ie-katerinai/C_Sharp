@@ -9,10 +9,10 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/HomeWork6/Task2VeryHard/bin/Debug/net6.0/Task2VeryHard.dll",
+            "program": "${workspaceFolder}/HomeWork8/Task56/bin/Debug/net6.0/Task56.dll",
             "cwd": "${workspaceFolder}",
             "stopAtEntry": false,
-            "console": "internalConsole"
+            "console": "integratedTerminal"
         }
 
     ]
