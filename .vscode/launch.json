@@ -9,7 +9,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/HomeWork8/Task56/bin/Debug/net6.0/Task56.dll",
+            "program": "${workspaceFolder}/HomeWork9/Task66/bin/Debug/net6.0/Task66.dll",
             "cwd": "${workspaceFolder}",
             "stopAtEntry": false,
             "console": "integratedTerminal"
