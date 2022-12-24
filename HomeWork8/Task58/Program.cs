@@ -52,7 +52,7 @@ try
     int rows2 = Convert.ToInt32(Console.ReadLine());
     Console.WriteLine("Введите количество столбцов второго двумерного массива");
     int cols2 = Convert.ToInt32(Console.ReadLine());
-    if (cols1 = rows2)
+    if (cols1 == rows2)
     {
         int[,] array1 = new int[rows1, cols1];
         FillArray(array1);

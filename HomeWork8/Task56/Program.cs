@@ -35,7 +35,7 @@ void SummRowsNum(int[,] array)
             minSum += array[0, j];
     for (int i = 1; i < array.GetLength(0); i++)
     {
-        for (int j = 0; array.GetLength(1); j++)
+        for (int j = 0; j < array.GetLength(1); j++)
         {
             tempSumRow += array[i, j];
         }
@@ -55,7 +55,7 @@ try
     Console.WriteLine("Введите количество столбцов двумерного массива");
     int cols = Convert.ToInt32(Console.ReadLine());
     
-    if (rows = cols)
+    if (rows == cols)
     {
        Console.WriteLine("Вы задали не прямоугольный массив");
     }
