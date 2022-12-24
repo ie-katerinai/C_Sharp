@@ -28,8 +28,8 @@ void FillArray(int[,] array)
 
 void SummRowsNum(int[,] array)
 { 
-    int indexMin = 0; // индекс искомой строки
-    int minSum = 0; // сумма строки
+    int indexMin = 0; 
+    int minSum = 0; 
     int tempSumRow = 0;
     for (int j = 0; j < array.GetLength(1); j++)
             minSum += array[0, j];
